@@ -17,17 +17,17 @@ song_speed = 0.6
 assert len(song_notes) == len(song_lengths) and len(song_lengths) == len(song_keys) and len(song_keys) == len(song_piano)
 
 for i in xrange(0, len(song_notes)):
-	print "Note:", song_notes[i], characters[song_notes[i]]
-	print "Key:", song_keys[i]
-	print "Length:", song_lengths[i]
-	send(notesToMidiString([song_notes[i]]))
-	send(noteOn(song_keys[i]))
+    print "Note:", song_notes[i], characters[song_notes[i]]
+    print "Key:", song_keys[i]
+    print "Length:", song_lengths[i]
+    send(notesToMidiString([song_notes[i]]))
+    send(noteOn(song_keys[i]))
 
-	if song_piano[i]:
-		if (i > 0):
-			send(noteOff(song_keys[i-1], channel='1'))
-		send(noteOn(song_keys[i], channel='1'))
-	time.sleep(song_lengths[i] * song_speed)
-	if i == len(song_notes) - 1:
-		send(noteOff(song_keys[i], 20))
-		send(noteOff(song_keys[i], channel='1'))
+    if song_piano[i]:
+        if (i > 0):
+            send(noteOff(song_keys[i-1], channel='1'))
+        send(noteOn(song_keys[i], channel='1'))
+    time.sleep(song_lengths[i] * song_speed)
+    if i == len(song_notes) - 1:
+        send(noteOff(song_keys[i], 20))
+        send(noteOff(song_keys[i], channel='1'))

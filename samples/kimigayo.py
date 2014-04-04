@@ -15,11 +15,11 @@ song_lengths = [1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 2, 1, 
 assert len(song_notes) == len(song_lengths) and len(song_lengths) == len(song_keys)
 
 for i in xrange(0, len(song_notes)):
-	print "Note:", song_notes[i]
-	print "Key:", song_keys[i]
-	print "Length:", song_lengths[i]
-	send(notesToMidiString([song_notes[i]]))
-	send(noteOn(song_keys[i]))
-	time.sleep(song_lengths[i] * 0.4)
-	if i == len(song_notes) - 1:
-		send(noteOff(song_keys[i], 20))
+    print "Note:", song_notes[i]
+    print "Key:", song_keys[i]
+    print "Length:", song_lengths[i]
+    send(notesToMidiString([song_notes[i]]))
+    send(noteOn(song_keys[i]))
+    time.sleep(song_lengths[i] * 0.4)
+    if i == len(song_notes) - 1:
+        send(noteOff(song_keys[i], 20))
