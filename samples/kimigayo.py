@@ -3,9 +3,9 @@
 
 import time
 
-from amidi import send
-from control import noteOn, noteOff, notesToMidiString
-from notes import stringToNotes
+from pocketmiku.amidi import send
+from pocketmiku.control import noteOn, noteOff, notesToMidiString
+from pocketmiku.notes import stringToNotes
 
 song_chars = u"きみがあよおわちよにいいやちよにさざれいしのいわおとなりてこけのむうすうまああで"
 song_notes = stringToNotes(song_chars)

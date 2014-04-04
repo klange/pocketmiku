@@ -4,7 +4,7 @@
 
 import sys
 
-from amidi import send
+from pocketmiku.amidi import send
 
 if __name__ == "__main__":
 	print "Sending %s" % " ".join(sys.argv[1:])

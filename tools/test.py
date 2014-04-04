@@ -3,9 +3,9 @@
 
 import time
 
-from amidi import send
-from control import noteOn, noteOff, notesToMidiString
-from notes import characters
+from pocketmiku.amidi import send
+from pocketmiku.control import noteOn, noteOff, notesToMidiString
+from pocketmiku.notes import characters
 
 scale = [60, 62, 64, 65, 67, 69, 71, 72]
 names = ['C','D','E','F','G','A','B','C']
