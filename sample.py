@@ -21,4 +21,5 @@ for i in xrange(0, len(song_notes)):
 	send(notesToMidiString([song_notes[i]]))
 	send(noteOn(song_keys[i]))
 	time.sleep(song_lengths[i] * 0.4)
-	send(noteOff(song_keys[i], 20))
+	if i == len(song_notes) - 1:
+		send(noteOff(song_keys[i], 20))
