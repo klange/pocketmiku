@@ -40,7 +40,7 @@ setup(
 
     keywords='miku vocaloid pocketmiku nsx-39 midi audio',
 
-    packages=['pocketmiku'],
+    packages=find_packages(exclude=["contrib", "docs", "tests*"]),
     install_requires = [],
 )
 
