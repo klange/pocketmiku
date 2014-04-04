@@ -31,7 +31,7 @@ setup(
         'Development Status :: 4 - Beta',
         'Topic :: Multimedia :: Sound/Audio :: MIDI',
         'Topic :: Multimedia :: Sound/Audio :: Sound Synthesis',
-        'Topic :: Multimedia :: Sound/Audio :: Speech'
+        'Topic :: Multimedia :: Sound/Audio :: Speech',
         'License :: OSI Approved :: University of Illinois/NCSA Open Source License',
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.6',
