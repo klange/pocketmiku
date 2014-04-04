@@ -30,7 +30,7 @@ def characterIsValid(c):
 		c = aliases[c]
 	return c in characters
 
-def stringToMidi(s):
+def stringToNotes(s):
 	i = 0
 	output = []
 	while i < len(s):
@@ -55,5 +55,5 @@ if __name__ == "__main__":
 	assert characterToMidi(u'ば') == 0x4C
 	assert characterToMidi(u'り') == 0x70
 
-	assert stringToMidi(u"でぃおすみおえすらちゅぱかぶら") == \
+	assert stringToNotes(u"でぃおすみおえすらちゅぱかぶら") == \
 			[0x2F, 0x04, 0x17, 0x65, 0x04, 0x03, 0x17, 0x6F, 0x37, 0x51, 0x05, 0x4E, 0x6F]
