@@ -40,9 +40,8 @@ def stringToMidi(s):
 			i += 2
 		else:
 			candidate = s[i]
-			if not characterIsValid(candidate):
-				raise ValueError("Invalid note character in string: %s" % candidate)
-			output.append(characterToMidi(candidate))
+			if characterIsValid(candidate):
+				output.append(characterToMidi(candidate))
 			i += 1
 	return output
 
