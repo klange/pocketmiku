@@ -4,6 +4,18 @@
 Module to create MIDI events.
 """
 
+sysExPreamble = "F0 43 79 09 11"
+sysExEnd = "F7"
+
+def sysExString(data):
+    """
+    Create a SysEx string from the given data list.
+    """
+    output = [sysExPreamble]
+    output.extend(data)
+    output.extend([sysExEnd])
+    return " ".join(output)
+
 def notesToMidiString(l):
     """
     Set the lyrics on the NSX-39
@@ -13,10 +25,10 @@ def notesToMidiString(l):
     that it will sequence through as notes are played.
     You can update the lyrics at any time.
     """
-    output = "F0 43 79 09 11 0A 00 "
-    output += " ".join(["%2x" % i for i in l])
-    output += " F7"
-    return output
+    return sysExString(["0A 00"]+["%2x" % i for i in l])
+
+def setSlotLyrics(slot, l):
+    return sysExString(["0A %2x" % slot]+["%2x" % i for i in l])
 
 def noteOn(note, velocity=0x45, channel='0'):
     """

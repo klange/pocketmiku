@@ -26,3 +26,17 @@ def send(s):
         detectHardwarePort()
     call(['amidi', '-p', hardware_port, '-S', s])
 
+def read():
+    """Reads from the device for one second and returns any data received."""
+    if not hardware_port:
+        detectHardwarePort()
+    return check_output(['amidi', '-p', hardware_port, '-d', '-t', '1'])
+
+def sendAndGetResponse(s):
+    """Sends a string and then waits one second to get a response."""
+    if not hardware_port:
+        detectHardwarePort()
+    # This is really ugly and I need to find a way to talk midi directly instead of this...
+    cmd = "amidi -p '%s' -d -t 1 & amidi -p '%s' -S '%s' && wait $(jobs -p)" % (hardware_port, hardware_port, s)
+    return check_output(cmd, shell=True)
+
