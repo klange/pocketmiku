@@ -43,5 +43,7 @@ I am working to compile a complete set of functions to control programming of al
 
 The device has 16 banks of lyrics. Each bank can hold 64 lyric "characters". The first bank (bank 00) isn't accessible from a key on the device, which makes it useful for loading lyrics ad-hoc. The other 15 banks are the A, I, U, E, O keys, followed by Shift+A-O, followed by Vibrato+A-O. Only the last nibble of the bank number matters, the first nibble is seemingly ignored. Each bank is nonvolatile, if you program a bank it will stay that way through a restart. The webapp allows programming and reading all of the banks except seemingly bank 0.
 
-There are also SysEx commands to request the currently selected bank, the current position in the lyrics, and possibly also to set the position in lyrics (note that this would be very useful when you can just explicitly set individual notes). Setting lyrics for a particular bank switches the device to that bank.
+There are also SysEx commands to request the currently selected bank, the current position in the lyrics, and possibly also to set the position in lyrics (not that this would be very useful when you can just explicitly set individual notes). Setting lyrics for a particular bank switches the device to that bank.
+
+A tool is provided to retrieve the lyrics from all of the banks, but it makes hacky use of `amidi` to do so. If anyone reading this is aware of a good Python library for talking to MIDI devices - preferrably one that is cross-platform, but most importantly one that works with Linux - ping me.
 
